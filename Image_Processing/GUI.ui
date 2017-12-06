@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>908</width>
+    <height>414</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="image">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>908</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="new_2"/>
+    <addaction name="open"/>
+    <addaction name="saveAs"/>
+    <addaction name="separator"/>
+    <addaction name="subset"/>
+    <addaction name="layers"/>
+    <addaction name="merge"/>
+    <addaction name="separator"/>
+    <addaction name="quit_2"/>
+   </widget>
+   <widget class="QMenu" name="menuEnhancement">
+    <property name="title">
+     <string>Preprocessing</string>
+    </property>
+    <widget class="QMenu" name="menuRadiometric_2">
+     <property name="title">
+      <string>Radiometric</string>
+     </property>
+     <addaction name="banding"/>
+     <addaction name="haze"/>
+    </widget>
+    <addaction name="menuRadiometric_2"/>
+   </widget>
+   <widget class="QMenu" name="menuTransform">
+    <property name="title">
+     <string>Enhancement</string>
+    </property>
+    <widget class="QMenu" name="menuFiltering_2">
+     <property name="title">
+      <string>Filtering</string>
+     </property>
+     <widget class="QMenu" name="menuLow_Pass_Filtering_2">
+      <property name="title">
+       <string>Low Pass Filtering</string>
+      </property>
+      <addaction name="meanfilter"/>
+      <addaction name="medianfilter_2"/>
+      <addaction name="modefilter"/>
+     </widget>
+     <widget class="QMenu" name="menuHigh_Pass_Filtering_2">
+      <property name="title">
+       <string>High Pass Filtering</string>
+      </property>
+      <addaction name="canny"/>
+      <addaction name="laplace"/>
+      <addaction name="prewitt"/>
+      <addaction name="robert"/>
+      <addaction name="sobel"/>
+     </widget>
+     <addaction name="menuLow_Pass_Filtering_2"/>
+     <addaction name="menuHigh_Pass_Filtering_2"/>
+     <addaction name="gabor"/>
+    </widget>
+    <widget class="QMenu" name="menuContrast">
+     <property name="title">
+      <string>Contrast</string>
+     </property>
+     <widget class="QMenu" name="menuNonlinear_Stretching">
+      <property name="title">
+       <string>Nonlinear Stretching</string>
+      </property>
+      <addaction name="log"/>
+      <addaction name="inverse"/>
+      <addaction name="power"/>
+     </widget>
+     <addaction name="linear"/>
+     <addaction name="menuNonlinear_Stretching"/>
+    </widget>
+    <addaction name="menuContrast"/>
+    <addaction name="menuFiltering_2"/>
+   </widget>
+   <widget class="QMenu" name="menuImage_Fusion">
+    <property name="title">
+     <string>Transform</string>
+    </property>
+    <addaction name="pca"/>
+    <addaction name="hough_2"/>
+    <addaction name="hsv"/>
+   </widget>
+   <widget class="QMenu" name="classification">
+    <property name="title">
+     <string>Classification</string>
+    </property>
+    <addaction name="unsupervised"/>
+   </widget>
+   <widget class="QMenu" name="menuSegmentation">
+    <property name="title">
+     <string>Segmentation</string>
+    </property>
+    <widget class="QMenu" name="menuThreshold">
+     <property name="title">
+      <string>Threshold</string>
+     </property>
+     <addaction name="binary"/>
+     <addaction name="binaryInv"/>
+     <addaction name="truncate"/>
+     <addaction name="Tozero"/>
+     <addaction name="zero"/>
+    </widget>
+    <addaction name="menuThreshold"/>
+    <addaction name="region"/>
+    <addaction name="watershed"/>
+   </widget>
+   <widget class="QMenu" name="menuMorphology">
+    <property name="title">
+     <string>Morphology</string>
+    </property>
+    <addaction name="erosion"/>
+    <addaction name="dilation"/>
+    <addaction name="opening"/>
+    <addaction name="closing"/>
+   </widget>
+   <widget class="QMenu" name="statistics_2">
+    <property name="title">
+     <string>Statistics</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="about">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="about_2"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEnhancement"/>
+   <addaction name="menuTransform"/>
+   <addaction name="menuImage_Fusion"/>
+   <addaction name="menuSegmentation"/>
+   <addaction name="menuMorphology"/>
+   <addaction name="classification"/>
+   <addaction name="statistics_2"/>
+   <addaction name="about"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="new_2">
+   <property name="text">
+    <string>New...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="open">
+   <property name="text">
+    <string>Open...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="save">
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="actionClose_2">
+   <property name="text">
+    <string>Close</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F4</string>
+   </property>
+  </action>
+  <action name="actionLine_Drop">
+   <property name="text">
+    <string>Line Dropout</string>
+   </property>
+  </action>
+  <action name="actionLine_Banding">
+   <property name="text">
+    <string>Line Banding</string>
+   </property>
+  </action>
+  <action name="actionDN_to_Radian">
+   <property name="text">
+    <string>DN to Radiance</string>
+   </property>
+  </action>
+  <action name="actionRadian_to_Reflectance">
+   <property name="text">
+    <string>Radiance to Reflectance</string>
+   </property>
+  </action>
+  <action name="actionHaze_correction">
+   <property name="text">
+    <string>Haze correction</string>
+   </property>
+  </action>
+  <action name="actionRadiometric_Normalization">
+   <property name="text">
+    <string>Radiometric Normalization</string>
+   </property>
+  </action>
+  <action name="actionPolynomial_Rectification">
+   <property name="text">
+    <string>Polynomial Rectification</string>
+   </property>
+  </action>
+  <action name="actionRegistration">
+   <property name="text">
+    <string>Registration</string>
+   </property>
+  </action>
+  <action name="actionMean">
+   <property name="text">
+    <string>Mean</string>
+   </property>
+  </action>
+  <action name="actionMode">
+   <property name="text">
+    <string>Mode</string>
+   </property>
+  </action>
+  <action name="actionMedian">
+   <property name="text">
+    <string>Median</string>
+   </property>
+  </action>
+  <action name="actionLaplace">
+   <property name="text">
+    <string>Laplace</string>
+   </property>
+  </action>
+  <action name="actionSobel">
+   <property name="text">
+    <string>Sobel</string>
+   </property>
+  </action>
+  <action name="actionPrewitt">
+   <property name="text">
+    <string>Perwitt</string>
+   </property>
+  </action>
+  <action name="actionCanny">
+   <property name="text">
+    <string>Canny</string>
+   </property>
+  </action>
+  <action name="actionRobert">
+   <property name="text">
+    <string>Robert</string>
+   </property>
+  </action>
+  <action name="hough">
+   <property name="text">
+    <string>Hough</string>
+   </property>
+  </action>
+  <action name="actionIntensity_Hue_Saturation">
+   <property name="text">
+    <string>Intensity Hue Saturation</string>
+   </property>
+  </action>
+  <action name="actionSupervised">
+   <property name="text">
+    <string>Supervised</string>
+   </property>
+  </action>
+  <action name="actionUnsupervised">
+   <property name="text">
+    <string>Unsupervised</string>
+   </property>
+  </action>
+  <action name="saveAs">
+   <property name="text">
+    <string>Save As...</string>
+   </property>
+  </action>
+  <action name="actionExport">
+   <property name="text">
+    <string>Export</string>
+   </property>
+  </action>
+  <action name="actionSubset">
+   <property name="text">
+    <string>Subset</string>
+   </property>
+  </action>
+  <action name="quit">
+   <property name="text">
+    <string>Close</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F4</string>
+   </property>
+  </action>
+  <action name="actionImport_2">
+   <property name="text">
+    <string>Import</string>
+   </property>
+  </action>
+  <action name="actionExport_2">
+   <property name="text">
+    <string>Export</string>
+   </property>
+  </action>
+  <action name="subset">
+   <property name="text">
+    <string>Subset</string>
+   </property>
+  </action>
+  <action name="layers">
+   <property name="text">
+    <string>Layers</string>
+   </property>
+  </action>
+  <action name="actionSupervised_2">
+   <property name="text">
+    <string>Supervised</string>
+   </property>
+  </action>
+  <action name="actionUnsupervised_2">
+   <property name="text">
+    <string>Unsupervised</string>
+   </property>
+  </action>
+  <action name="pca">
+   <property name="text">
+    <string>Principal Component Analysis</string>
+   </property>
+  </action>
+  <action name="actionRatioing_2">
+   <property name="text">
+    <string>Ratioing</string>
+   </property>
+  </action>
+  <action name="hough_2">
+   <property name="text">
+    <string>Hough</string>
+   </property>
+  </action>
+  <action name="hsv">
+   <property name="text">
+    <string>Intensity Hue Saturation</string>
+   </property>
+  </action>
+  <action name="meanfilter">
+   <property name="text">
+    <string>Mean</string>
+   </property>
+  </action>
+  <action name="medianfilter_2">
+   <property name="text">
+    <string>Median</string>
+   </property>
+  </action>
+  <action name="modefilter">
+   <property name="text">
+    <string>Gaussian</string>
+   </property>
+  </action>
+  <action name="canny">
+   <property name="text">
+    <string>Canny</string>
+   </property>
+  </action>
+  <action name="laplace">
+   <property name="text">
+    <string>Laplace</string>
+   </property>
+  </action>
+  <action name="prewitt">
+   <property name="text">
+    <string>Prewitt</string>
+   </property>
+  </action>
+  <action name="robert">
+   <property name="text">
+    <string>Robert</string>
+   </property>
+  </action>
+  <action name="sobel">
+   <property name="text">
+    <string>Sobel</string>
+   </property>
+  </action>
+  <action name="actionLine_Dropout">
+   <property name="text">
+    <string>Line Dropout</string>
+   </property>
+  </action>
+  <action name="banding">
+   <property name="text">
+    <string>Line Banding</string>
+   </property>
+  </action>
+  <action name="actionDN_to_Radiance">
+   <property name="text">
+    <string>DN to Radiance</string>
+   </property>
+  </action>
+  <action name="actionRadiance_to_Reflectance">
+   <property name="text">
+    <string>Radiance to Reflectance</string>
+   </property>
+  </action>
+  <action name="haze">
+   <property name="text">
+    <string>Haze Correction</string>
+   </property>
+  </action>
+  <action name="actionRadiometric_Normalisation">
+   <property name="text">
+    <string>Radiometric Normalisation</string>
+   </property>
+  </action>
+  <action name="actionPolynomial_Rectification_2">
+   <property name="text">
+    <string>Polynomial Rectification</string>
+   </property>
+  </action>
+  <action name="actionRegistration_2">
+   <property name="text">
+    <string>Registration</string>
+   </property>
+  </action>
+  <action name="zoomin">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Zoom in...</string>
+   </property>
+  </action>
+  <action name="zoomout">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Zoom out...</string>
+   </property>
+  </action>
+  <action name="normalsize">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Normal size</string>
+   </property>
+  </action>
+  <action name="fitwindow">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Fit to window</string>
+   </property>
+  </action>
+  <action name="merge">
+   <property name="text">
+    <string>Band Combination</string>
+   </property>
+  </action>
+  <action name="mean">
+   <property name="text">
+    <string>Mean</string>
+   </property>
+  </action>
+  <action name="mode">
+   <property name="text">
+    <string>Mode</string>
+   </property>
+  </action>
+  <action name="median">
+   <property name="text">
+    <string>Median</string>
+   </property>
+  </action>
+  <action name="histogram">
+   <property name="text">
+    <string>Histogram</string>
+   </property>
+  </action>
+  <action name="quit_2">
+   <property name="text">
+    <string>Close</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F4</string>
+   </property>
+  </action>
+  <action name="linear">
+   <property name="text">
+    <string>Linear stretching</string>
+   </property>
+  </action>
+  <action name="log">
+   <property name="text">
+    <string>Logarithmic</string>
+   </property>
+  </action>
+  <action name="inverse">
+   <property name="text">
+    <string>Inverse Logarithmic</string>
+   </property>
+  </action>
+  <action name="power">
+   <property name="text">
+    <string>Power</string>
+   </property>
+  </action>
+  <action name="gabor">
+   <property name="text">
+    <string>Gabor</string>
+   </property>
+  </action>
+  <action name="binary">
+   <property name="text">
+    <string>Binary</string>
+   </property>
+  </action>
+  <action name="binaryInv">
+   <property name="text">
+    <string>Binary Inversion</string>
+   </property>
+  </action>
+  <action name="truncate">
+   <property name="text">
+    <string>Truncate</string>
+   </property>
+  </action>
+  <action name="Tozero">
+   <property name="text">
+    <string>To Zero Inversion</string>
+   </property>
+  </action>
+  <action name="zero">
+   <property name="text">
+    <string>Zero Inversion</string>
+   </property>
+  </action>
+  <action name="region">
+   <property name="text">
+    <string>Region Growing</string>
+   </property>
+  </action>
+  <action name="watershed">
+   <property name="text">
+    <string>Watershed</string>
+   </property>
+  </action>
+  <action name="erosion">
+   <property name="text">
+    <string>Erosion</string>
+   </property>
+  </action>
+  <action name="dilation">
+   <property name="text">
+    <string>Dilation</string>
+   </property>
+  </action>
+  <action name="opening">
+   <property name="text">
+    <string>Opening</string>
+   </property>
+  </action>
+  <action name="actionForeground">
+   <property name="text">
+    <string>Foreground</string>
+   </property>
+  </action>
+  <action name="actionRuralroad">
+   <property name="text">
+    <string>RuralRoad</string>
+   </property>
+  </action>
+  <action name="actionUrbanroad">
+   <property name="text">
+    <string>UrbanRoad</string>
+   </property>
+  </action>
+  <action name="actionBuilding">
+   <property name="text">
+    <string>Building</string>
+   </property>
+  </action>
+  <action name="statistics">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="closing">
+   <property name="text">
+    <string>Closing</string>
+   </property>
+  </action>
+  <action name="unsupervised">
+   <property name="text">
+    <string>Unsupervised</string>
+   </property>
+  </action>
+  <action name="about_2">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
